@@ -178,7 +178,7 @@ let idx = 0
 let current = true
 let activeProject = 0
 
-setTimeout(changePageDown, 100)
+setTimeout(changePageDown, 10500)
 
 function loadProject(currentProject) {
 	const currentProjectData = projectData[currentProject]
