@@ -288,8 +288,14 @@ menuTitles.forEach((title, idx) => {
 		resetProject()
 
 		for (i = 0; i <= screens.length - 1; i++) {
-			screens[i].classList.remove('hide')
-			screens[i].classList.remove('up')
+			if (i === 3) {
+				screens[i].classList.remove('hide')
+				screens[i].classList.remove('up')
+				screens[i].classList.remove('halfup')
+			} else {
+				screens[i].classList.remove('hide')
+				screens[i].classList.remove('up')
+			}
 		}
 
 		for (j = 0; j < idx; j++) {
