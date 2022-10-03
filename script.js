@@ -2,6 +2,7 @@ const menuBtn = document.getElementById('menu-btn')
 const menuDrawer = document.getElementById('menu-drawer')
 const screens = document.querySelectorAll('.screen')
 const bottomBtn = document.getElementById('bottom-btn')
+const bottomEl = document.getElementById('bottom')
 const headerEl = document.getElementById('header')
 const footer = document.getElementById('footer')
 const menuTitles = document.querySelectorAll('.menu-titles li h2')
@@ -18,6 +19,8 @@ const nextProject = document.querySelector('.next-project')
 const mainEl = document.querySelector('.main')
 const containerEl = document.querySelector('.container')
 const exampleContainer = document.querySelector('.example-container')
+const projectItems = document.querySelector('.example-container').children
+const imagesItems = document.querySelector('.images-container').children
 
 const colors = ['#Ec3890', '#730f9e', '#48fdb4']
 
@@ -175,7 +178,7 @@ let idx = 0
 let current = true
 let activeProject = 0
 
-setTimeout(changePageDown, 10500)
+setTimeout(changePageDown, 100)
 
 function loadProject(currentProject) {
 	const currentProjectData = projectData[currentProject]
@@ -219,7 +222,36 @@ function loadProject(currentProject) {
     `
 	activeProject = currentProject
 
+	footer.classList.add('hide')
+
 	current = false
+
+	console.log(projectItems)
+}
+
+window.addEventListener('scroll', ShowElements)
+
+function ShowElements() {
+	const triggerBottom = window.innerHeight
+	console.log(imagesItems)
+
+	Array.from(projectItems).forEach((item, idx) => {
+		const itemTop = item.getBoundingClientRect().top
+
+		if (itemTop < triggerBottom && idx <= Array.from(projectItems).length - 1) {
+			item.classList.add('trigger')
+			if (idx === 3) {
+				Array.from(imagesItems).forEach((image) => {
+					const imageTop = image.getBoundingClientRect().top
+					if (imageTop < triggerBottom) {
+						image.classList.add('trigger')
+					}
+				})
+			} else {
+				footer.classList.remove('hide')
+			}
+		}
+	})
 }
 
 function resetProject() {
@@ -228,11 +260,14 @@ function resetProject() {
 	infoBottom.innerHTML = ''
 	nextProject.innerHTML = ''
 	imagesContainer.innerHTML = ''
+
+	Array.from(projectItems).forEach((item) => {
+		item.classList.remove('trigger')
+	})
 }
 
 projectsEl.addEventListener('mouseenter', () => {
 	current = false
-	console.log(current)
 })
 
 projectsEl.addEventListener('mouseleave', () => {
@@ -241,7 +276,6 @@ projectsEl.addEventListener('mouseleave', () => {
 	} else {
 		current = true
 	}
-	console.log(current)
 })
 
 menuTitles.forEach((title, idx) => {
@@ -370,24 +404,30 @@ function pageMove(event) {
 }
 
 function changePageDown() {
-	if (idx < screens.length - 1) {
+	if (idx === 0) {
 		screens[idx].classList.add('up')
-		bottomBtn.classList.add('show')
+		bottomEl.classList.add('show')
+		headerEl.classList.add('show')
+		idx++
+	} else if (idx < screens.length - 1) {
+		screens[idx].classList.add('up')
+		bottomEl.classList.add('show')
 		headerEl.classList.add('show')
 	} else if (idx === screens.length - 1) {
 		screens[idx].classList.add('halfup')
-		bottomBtn.classList.add('hide')
+		bottomEl.classList.add('hide')
 		footer.classList.remove('hide')
 	} else if (idx === screens.length) {
 		idx = screens.length - 1
 	}
+	console.log(screens.length)
 }
 
 function changePageUp() {
 	const PreviousScreen = idx - 1
 	if (idx === screens.length) {
 		screens[PreviousScreen].classList.remove('halfup')
-		bottomBtn.classList.remove('hide')
+		bottomEl.classList.remove('hide')
 		footer.classList.add('hide')
 	} else {
 		screens[PreviousScreen].classList.remove('up')
