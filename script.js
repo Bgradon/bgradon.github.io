@@ -21,6 +21,7 @@ const containerEl = document.querySelector('.container')
 const exampleContainer = document.querySelector('.example-container')
 const projectItems = document.querySelector('.example-container').children
 const imagesItems = document.querySelector('.images-container').children
+const contactContainer = document.querySelector('.contact-container')
 
 const colors = ['#Ec3890', '#730f9e', '#48fdb4']
 
@@ -178,7 +179,11 @@ let idx = 0
 let current = true
 let activeProject = 0
 
+// Auto trigger after Animation
+
 setTimeout(changePageDown, 10500)
+
+// Project Loader
 
 function loadProject(currentProject) {
 	const currentProjectData = projectData[currentProject]
@@ -225,15 +230,14 @@ function loadProject(currentProject) {
 	footer.classList.add('hide')
 
 	current = false
-
-	console.log(projectItems)
 }
+
+// On Project pages, display on scroll
 
 window.addEventListener('scroll', ShowElements)
 
 function ShowElements() {
 	const triggerBottom = window.innerHeight
-	console.log(imagesItems)
 
 	Array.from(projectItems).forEach((item, idx) => {
 		const itemTop = item.getBoundingClientRect().top
@@ -255,14 +259,16 @@ function ShowElements() {
 }
 
 function resetProject() {
-	banner.innerHTML = ''
-	infoTop.innerHTML = ''
-	infoBottom.innerHTML = ''
-	nextProject.innerHTML = ''
-	imagesContainer.innerHTML = ''
+	// banner.innerHTML = ''
+	// infoTop.innerHTML = ''
+	// infoBottom.innerHTML = ''
+	// nextProject.innerHTML = ''
+	// imagesContainer.innerHTML = ''
 
 	Array.from(projectItems).forEach((item) => {
 		item.classList.remove('trigger')
+		item.innerHTML = ''
+		console.log(item)
 	})
 }
 
@@ -281,25 +287,33 @@ projectsEl.addEventListener('mouseleave', () => {
 menuTitles.forEach((title, idx) => {
 	title.addEventListener('click', () => {
 		exampleContainer.classList.add('hide')
+		contactContainer.classList.add('hide')
 		mainEl.classList.remove('project')
 		containerEl.classList.remove('project')
 		footer.classList.add('hide')
 		bottomBtn.classList.remove('hide')
 		resetProject()
-
-		for (i = 0; i <= screens.length - 1; i++) {
-			if (i === 3) {
-				screens[i].classList.remove('hide')
-				screens[i].classList.remove('up')
-				screens[i].classList.remove('halfup')
-			} else {
-				screens[i].classList.remove('hide')
-				screens[i].classList.remove('up')
+		if (idx === menuTitles.length - 1) {
+			for (i = 0; i <= screens.length - 1; i++) {
+				screens[i].classList.add('hide')
 			}
-		}
+			contactContainer.classList.remove('hide')
+			bottomBtn.classList.add('hide')
+		} else {
+			for (j = 0; j <= screens.length - 1; j++) {
+				if (j === 3) {
+					screens[j].classList.remove('hide')
+					screens[j].classList.remove('up')
+					screens[j].classList.remove('halfup')
+				} else {
+					screens[j].classList.remove('hide')
+					screens[j].classList.remove('up')
+				}
+			}
 
-		for (j = 0; j < idx; j++) {
-			screens[j].classList.add('up')
+			for (h = 0; h < idx; h++) {
+				screens[h].classList.add('up')
+			}
 		}
 		menuDrawer.classList.toggle('open')
 		menuBtn.classList.toggle('active')
@@ -406,7 +420,6 @@ function pageMove(event) {
 			}
 		}
 	}
-	console.log(idx)
 }
 
 function changePageDown() {
@@ -426,7 +439,6 @@ function changePageDown() {
 	} else if (idx === screens.length) {
 		idx = screens.length - 1
 	}
-	console.log(screens.length)
 }
 
 function changePageUp() {

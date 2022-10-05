@@ -685,3 +685,154 @@ body {
 		height: 130px;
 	}
 }
+
+.contact-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 10px 0;
+	padding: 0;
+	z-index: -1;
+}
+.info-container {
+	position: relative;
+	width: 100%;
+	height: 35vh;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+}
+
+.info-container h2 {
+	position: absolute;
+	display: block;
+	font-family: 'qanelas-soft-extrabold';
+	font-size: 350px;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	text-align: center;
+	color: grey;
+	filter: opacity(10%);
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+.left-col {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	height: 100%;
+	width: 30%;
+}
+
+.left-col h1 {
+	font-family: 'qanelas-soft-extrabold';
+	font-size: 28px;
+
+	margin: 0;
+}
+
+.adress-container {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.adress-container p {
+	font-family: 'qanelas-soft-medium';
+	font-size: 18px;
+	line-height: 2;
+	margin: 10px;
+}
+
+.right-col {
+	width: 35%;
+	text-align: right;
+}
+
+.right-col h3 {
+	font-size: 28px;
+	font-family: 'qanelas-soft-extrabold';
+	margin-top: 50px;
+}
+
+.form-container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 35vh;
+	width: 100%;
+	background-color: #eff0f0;
+	margin-top: 50px;
+}
+
+.form-container h1 {
+	position: absolute;
+	left: 60px;
+	top: -80px;
+	font-family: 'qanelas-soft-extrabold';
+	font-size: 56px;
+}
+
+.form {
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+	width: 100%;
+	height: 90%;
+	padding: 50px 50px 20px 50px;
+}
+
+.side-form {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	width: 35%;
+}
+
+.side-form input {
+	width: 90%;
+	background-color: #eff0f0;
+	font-family: 'qanelas-soft-medium';
+	font-size: 18px;
+	color: #000;
+	padding: 6px;
+	border: none;
+	border-bottom: 2px solid #000;
+}
+
+.side-form input::placeholder {
+	color: #000;
+}
+
+.side-form input:focus {
+	outline: none;
+}
+
+.attachment-btn {
+	background-color: #eff0f0;
+	border: none;
+	padding: 6px;
+	font-family: 'qanelas-soft-extrabold';
+	font-size: 18px;
+}
+
+.send-btn {
+	width: 150px;
+	background-color: #000;
+	color: #fff;
+	padding: 6px;
+	font-family: 'qanelas-bold';
+	font-size: 16px;
+	letter-spacing: normal;
+}
