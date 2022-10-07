@@ -345,9 +345,15 @@ bottomBtn.addEventListener('click', () => {
 })
 
 footer.addEventListener('click', () => {
-	bottomBtn.classList.remove('hide')
+	bottomEl.classList.remove('hide')
 	footer.classList.add('hide')
-	screens[index - 1].classList.remove('up')
+	console.log(index)
+
+	if (index === 4) {
+		screens[index - 1].classList.remove('halfup')
+	} else {
+		screens[index - 1].classList.remove('up')
+	}
 })
 
 serviceTitles.forEach((title, idx) => {
