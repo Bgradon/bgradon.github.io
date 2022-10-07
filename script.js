@@ -175,13 +175,13 @@ const projectData = [
 
 let currentProject = 0
 let wheelTime = 0
-let idx = 0
+let index = 0
 let current = true
 let activeProject = 0
 
 // Auto trigger after Animation
 
-setTimeout(changePageDown, 10500)
+setTimeout(changePageDown, 100)
 
 // Project Loader
 
@@ -243,12 +243,12 @@ function ShowElements() {
 		const itemTop = item.getBoundingClientRect().top
 
 		if (itemTop < triggerBottom && idx <= Array.from(projectItems).length - 1) {
-			item.classList.add('trigger')
+			item.classList.add('active')
 			if (idx === 3) {
 				Array.from(imagesItems).forEach((image) => {
 					const imageTop = image.getBoundingClientRect().top
 					if (imageTop < triggerBottom) {
-						image.classList.add('trigger')
+						image.classList.add('active')
 					}
 				})
 			} else {
@@ -259,15 +259,9 @@ function ShowElements() {
 }
 
 function resetProject() {
-	// banner.innerHTML = ''
-	// infoTop.innerHTML = ''
-	// infoBottom.innerHTML = ''
-	// nextProject.innerHTML = ''
-	// imagesContainer.innerHTML = ''
-
 	Array.from(projectItems).forEach((item) => {
-		item.classList.remove('trigger')
-		item.innerHTML = ''
+		item.innerHTML = ' '
+		item.classList.remove('active')
 		console.log(item)
 	})
 }
@@ -317,7 +311,7 @@ menuTitles.forEach((title, idx) => {
 		}
 		menuDrawer.classList.toggle('open')
 		menuBtn.classList.toggle('active')
-
+		index = idx
 		current = true
 	})
 
@@ -330,6 +324,16 @@ menuTitles.forEach((title, idx) => {
 	})
 })
 
+nextProject.addEventListener('click', () => {
+	if (activeProject < projectTitles.length - 1) {
+		activeProject++
+	}
+	resetProject()
+	loadProject(activeProject)
+
+	window.scrollTo({ top: 0, behavior: 'smooth' })
+})
+
 menuBtn.addEventListener('click', () => {
 	menuDrawer.classList.toggle('open')
 	menuBtn.classList.toggle('active')
@@ -337,13 +341,13 @@ menuBtn.addEventListener('click', () => {
 
 bottomBtn.addEventListener('click', () => {
 	changePageDown()
-	idx++
+	index++
 })
 
 footer.addEventListener('click', () => {
 	bottomBtn.classList.remove('hide')
 	footer.classList.add('hide')
-	screens[idx - 1].classList.remove('up')
+	screens[index - 1].classList.remove('up')
 })
 
 serviceTitles.forEach((title, idx) => {
@@ -393,57 +397,48 @@ window.addEventListener('wheel', (e) => {
 	}
 })
 
-nextProject.addEventListener('click', () => {
-	if (activeProject < projectTitles.length - 1) {
-		activeProject++
-	}
-	resetProject()
-	loadProject(activeProject)
-	window.scrollTo({ top: 0, behavior: 'smooth' })
-})
-
 function pageMove(event) {
 	if (current === true) {
 		if (event.deltaY < 0) {
-			if (idx === 1) {
-				idx = 1
+			if (index === 1) {
+				index = 1
 			} else {
 				changePageUp()
-				idx--
+				index--
 			}
 		} else if (event.deltaY > 0) {
-			if (idx >= screens.lenght - 1) {
-				idx = screens.length - 1
+			if (index >= screens.lenght - 1) {
+				index = screens.length - 1
 			} else {
 				changePageDown()
-				idx++
+				index++
 			}
 		}
 	}
 }
 
 function changePageDown() {
-	if (idx === 0) {
-		screens[idx].classList.add('up')
+	if (index === 0) {
+		screens[index].classList.add('up')
 		bottomEl.classList.add('show')
 		headerEl.classList.add('show')
-		idx++
-	} else if (idx < screens.length - 1) {
-		screens[idx].classList.add('up')
+		index++
+	} else if (index < screens.length - 1) {
+		screens[index].classList.add('up')
 		bottomEl.classList.add('show')
 		headerEl.classList.add('show')
-	} else if (idx === screens.length - 1) {
-		screens[idx].classList.add('halfup')
+	} else if (index === screens.length - 1) {
+		screens[index].classList.add('halfup')
 		bottomEl.classList.add('hide')
 		footer.classList.remove('hide')
-	} else if (idx === screens.length) {
-		idx = screens.length - 1
+	} else if (index === screens.length) {
+		index = screens.length - 1
 	}
 }
 
 function changePageUp() {
-	const PreviousScreen = idx - 1
-	if (idx === screens.length) {
+	const PreviousScreen = index - 1
+	if (index === screens.length) {
 		screens[PreviousScreen].classList.remove('halfup')
 		bottomEl.classList.remove('hide')
 		footer.classList.add('hide')

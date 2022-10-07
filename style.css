@@ -530,7 +530,7 @@ body {
 	transition: transform 0.5s ease;
 }
 
-.info-top.trigger {
+.info-top.active {
 	transform: translateX(0);
 }
 
@@ -575,7 +575,7 @@ body {
 	transition: transform 0.5s ease;
 }
 
-.info-bottom.trigger {
+.info-bottom.active {
 	transform: translateX(0);
 }
 
@@ -605,7 +605,7 @@ body {
 	transition: transform 0.5s ease;
 }
 
-.next-project.trigger {
+.next-project.active {
 	transform: translateX(0);
 }
 
@@ -647,7 +647,7 @@ body {
 	transition: transform 0.5s ease;
 }
 
-.images-container.trigger {
+.images-container.active {
 	transform: translateX(0%);
 }
 
@@ -658,7 +658,7 @@ body {
 	transition: transform 0.5s ease-in-out;
 }
 
-.full-width.trigger {
+.full-width.active {
 	transform: translateX(0);
 }
 
@@ -671,7 +671,7 @@ body {
 	transition: transform 0.5s ease-in-out;
 }
 
-.half-width.trigger {
+.half-width.active {
 	transform: translateX(0);
 }
 
@@ -695,6 +695,11 @@ body {
 	padding: 0;
 	z-index: -1;
 }
+
+.contact-container.hide {
+	display: none;
+}
+
 .info-container {
 	position: relative;
 	width: 100%;
