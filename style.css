@@ -130,7 +130,7 @@ body {
 }
 
 .screen.halfup {
-	margin-top: -75vh;
+	margin-top: -74vh;
 }
 
 .animation video {
@@ -149,7 +149,7 @@ body {
 
 .a-propos p {
 	font-family: 'qanelas-soft-ExtraBold';
-	font-size: 30px;
+	font-size: 24px;
 }
 
 .bottom {
@@ -181,7 +181,7 @@ body {
 .screen h1 {
 	position: absolute;
 	font-family: 'qanelas-soft-extrabold';
-	font-size: 350px;
+	font-size: 128px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -223,13 +223,13 @@ body {
 
 .titles li small {
 	font-family: 'qanelas-soft-extrabold';
-	font-size: 28px;
+	font-size: 20px;
 	margin: 0 10px 0 10px;
 }
 
 .titles li h2 {
 	font-family: 'qanelas-extrabold';
-	font-size: 112px;
+	font-size: 80px;
 	align-self: center;
 	cursor: pointer;
 }
@@ -264,19 +264,20 @@ body {
 	height: 100%;
 	list-style-type: none;
 	display: flex;
-	justify-content: center;
+	justify-content: baseline;
 	align-items: center;
 	padding: 0;
 	margin: 0;
 }
 
 .projects {
-	width: 70%;
+	width: 100%;
 	height: 90%;
 	list-style-type: none;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	justify-content: space-around;
 	padding: 0;
 	margin: 0;
 	overflow: scroll;
@@ -287,18 +288,18 @@ body {
 	text-align: center;
 	padding: 0;
 	margin: 20px 0 20px 0;
-	height: 130px;
+	height: 50px;
 }
 
 .projects li small {
 	font-family: 'qanelas-soft-extrabold';
-	font-size: 28px;
+	font-size: 22px;
 	margin: 0 10px 0 10px;
 }
 
 .projects li h3 {
 	font-family: 'qanelas-extrabold';
-	font-size: 104px;
+	font-size: 45px;
 	align-self: center;
 }
 
@@ -313,9 +314,7 @@ body {
 }
 
 .img-container {
-	width: 30%;
-	height: 100%;
-	position: relative;
+	display: none;
 }
 
 .img-container img {
@@ -337,7 +336,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	height: 60%;
+	height: 60vh;
 	margin: 0;
 	padding: 0;
 	transition: all 0.5s linear;
@@ -346,7 +345,6 @@ body {
 .footer-container {
 	display: flex;
 	flex-direction: column;
-	/* justify-content: space-between; */
 	align-items: center;
 	margin: 50px 40px 30px 40px;
 	padding: 0;
@@ -390,7 +388,7 @@ body {
 }
 
 .footer-info h2 {
-	font-size: 24px;
+	font-size: 20px;
 	font-family: 'qanelas-soft-extrabold';
 	width: 80%;
 	margin-bottom: 20px;
@@ -421,7 +419,7 @@ body {
 
 .adress p {
 	width: 100%;
-	font-size: 16px;
+	font-size: 14px;
 	font-family: 'qanelas-soft-medium';
 	text-align: start;
 	line-height: 1.5;
@@ -431,7 +429,7 @@ body {
 .credits {
 	position: absolute;
 	text-align: center;
-	font-size: 16px;
+	font-size: 12px;
 	font-family: 'qanelas-soft-medium';
 	left: 50%;
 	transform: translateX(-50%);
@@ -503,7 +501,7 @@ body {
 
 .menu-container h2 {
 	font-family: 'qanelas-extrabold';
-	font-size: 100px;
+	font-size: 74px;
 	align-self: center;
 }
 
@@ -540,7 +538,7 @@ body {
 	justify-content: center;
 	width: 100%;
 	margin: 10px 0;
-	padding: 0;
+	padding: 0 10px;
 	z-index: -1;
 }
 
@@ -882,7 +880,7 @@ body {
 	letter-spacing: normal;
 }
 
-@media (max-width: 1500px) {
+@media screen and (min-width: 768px) and (max-width: 1500px) {
 	.projects {
 		height: 93%;
 	}
@@ -903,7 +901,7 @@ body {
 	}
 
 	.footer {
-		height: 45%;
+		height: 45vh;
 	}
 
 	.footer-container {
@@ -945,6 +943,10 @@ body {
 		margin: 0;
 	}
 
+	.credits {
+		font-size: 16px;
+	}
+
 	.menu-container {
 		flex-direction: row;
 		align-items: center;
@@ -976,7 +978,55 @@ body {
 		font-size: 118px;
 	}
 
+	.screen h1 {
+		font-size: 350px;
+	}
+
+	.screen.up {
+		margin-top: -80vh;
+	}
+
 	.screen.halfup {
-		margin-top: -63vh;
+		margin-top: -69vh;
+	}
+
+	.example-container {
+		padding: 0;
+	}
+
+	.titles li small {
+		font-size: 28px;
+	}
+
+	.titles li h2 {
+		font-size: 112px;
+	}
+
+	.projects-container {
+		justify-content: center;
+	}
+
+	.projects {
+		width: 70%;
+		justify-content: unset;
+	}
+
+	.projects li {
+		height: 120px;
+	}
+
+	.projects li small {
+		font-size: 28px;
+	}
+
+	.projects li h3 {
+		font-size: 104px;
+	}
+
+	.img-container {
+		display: block;
+		width: 30%;
+		height: 100%;
+		position: relative;
 	}
 }
