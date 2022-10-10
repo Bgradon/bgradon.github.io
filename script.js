@@ -181,7 +181,7 @@ let activeProject = 0
 
 // Auto trigger after Animation
 
-setTimeout(changePageDown, 100)
+setTimeout(changePageDown, 10500)
 
 // Project Loader
 
@@ -285,7 +285,7 @@ menuTitles.forEach((title, idx) => {
 		mainEl.classList.remove('project')
 		containerEl.classList.remove('project')
 		footer.classList.add('hide')
-		bottomBtn.classList.remove('hide')
+		bottomEl.classList.remove('hide')
 		resetProject()
 		if (idx === menuTitles.length - 1) {
 			for (i = 0; i <= screens.length - 1; i++) {
@@ -302,6 +302,7 @@ menuTitles.forEach((title, idx) => {
 				} else {
 					screens[j].classList.remove('hide')
 					screens[j].classList.remove('up')
+					screens[j].classList.remove('upper')
 				}
 			}
 
@@ -435,6 +436,10 @@ function changePageDown() {
 		headerEl.classList.add('show')
 	} else if (index === screens.length - 1) {
 		screens[index].classList.add('halfup')
+		for (i = 0; i <= screens.length - 2; i++) {
+			screens[i].classList.remove('up')
+			screens[i].classList.add('upper')
+		}
 		bottomEl.classList.add('hide')
 		footer.classList.remove('hide')
 	} else if (index === screens.length) {
@@ -446,6 +451,10 @@ function changePageUp() {
 	const PreviousScreen = index - 1
 	if (index === screens.length) {
 		screens[PreviousScreen].classList.remove('halfup')
+		for (i = 0; i <= screens.length - 2; i++) {
+			screens[i].classList.add('up')
+			screens[i].classList.remove('upper')
+		}
 		bottomEl.classList.remove('hide')
 		footer.classList.add('hide')
 	} else {

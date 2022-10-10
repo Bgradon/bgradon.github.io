@@ -133,7 +133,17 @@ body {
 	margin-top: -74vh;
 }
 
+.screen.animation {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
 .animation video {
+	position: absolute;
+	left: 0px;
+	top: 38%;
+	transform: translate(0, -48%);
 	width: 100%;
 	height: 100%;
 }
@@ -181,7 +191,7 @@ body {
 .screen h1 {
 	position: absolute;
 	font-family: 'qanelas-soft-extrabold';
-	font-size: 128px;
+	font-size: 120px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -501,7 +511,7 @@ body {
 
 .menu-container h2 {
 	font-family: 'qanelas-extrabold';
-	font-size: 74px;
+	font-size: 70px;
 	align-self: center;
 }
 
@@ -987,7 +997,17 @@ body {
 	}
 
 	.screen.halfup {
-		margin-top: -69vh;
+		margin-top: -45vh;
+	}
+
+	.screen.upper {
+		margin-top: -88vh;
+	}
+
+	.animation video {
+		left: 70px;
+		width: 550px;
+		height: auto;
 	}
 
 	.example-container {
