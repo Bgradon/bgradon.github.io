@@ -6,8 +6,10 @@ const bottomEl = document.getElementById('bottom')
 const headerEl = document.getElementById('header')
 const footer = document.getElementById('footer')
 const menuTitles = document.querySelectorAll('.menu-titles li h2')
-const serviceTitles = document.querySelectorAll('.titles li h2')
+const serviceTitles = document.querySelectorAll('.title-container h2')
 const serviceLists = document.querySelectorAll('.list')
+const mobileLists = document.querySelectorAll('.mobile-list')
+const titleContainer = document.querySelectorAll('.title-container')
 const projectTitles = document.querySelectorAll('.projects li h3')
 const projectImages = document.querySelectorAll('.img-container img')
 const projectsEl = document.querySelector('.projects')
@@ -181,7 +183,7 @@ let activeProject = 0
 
 // Auto trigger after Animation
 
-setTimeout(changePageDown, 10500)
+setTimeout(changePageDown, 100)
 
 // Project Loader
 
@@ -292,7 +294,7 @@ menuTitles.forEach((title, idx) => {
 				screens[i].classList.add('hide')
 			}
 			contactContainer.classList.remove('hide')
-			bottomBtn.classList.add('hide')
+			bottomEl.classList.add('hide')
 		} else {
 			for (j = 0; j <= screens.length - 1; j++) {
 				if (j === 3) {
@@ -366,7 +368,20 @@ serviceTitles.forEach((title, idx) => {
 		removeColor(title)
 		serviceLists[idx].classList.add('hide')
 	})
+	title.addEventListener('click', () => {
+		removeActive()
+		titleContainer[idx].classList.add('active')
+		mobileLists[idx].classList.remove('hide')
+	})
 })
+
+function removeActive() {
+	for (let i = 0; i < titleContainer.length; i++) {
+		titleContainer[i].classList.remove('active')
+		mobileLists[i].classList.add('hide')
+		console.log(titleContainer)
+	}
+}
 
 projectTitles.forEach((title, idx) => {
 	title.addEventListener('mouseover', () => {
@@ -384,7 +399,7 @@ projectTitles.forEach((title, idx) => {
 			screens[i].classList.add('hide')
 		}
 		exampleContainer.classList.remove('hide')
-		bottomBtn.classList.add('hide')
+		bottomEl.classList.add('hide')
 		footer.classList.remove('hide')
 
 		loadProject(idx)
