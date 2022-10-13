@@ -10,7 +10,7 @@ const serviceTitles = document.querySelectorAll('.title-container h2')
 const serviceLists = document.querySelectorAll('.list')
 const mobileLists = document.querySelectorAll('.mobile-list')
 const titleContainer = document.querySelectorAll('.title-container')
-const projectTitles = document.querySelectorAll('.projects li h3')
+const projectTitles = document.querySelectorAll('.projects div h3')
 const projectImages = document.querySelectorAll('.img-container img')
 const projectsEl = document.querySelector('.projects')
 const banner = document.querySelector('.banner')
@@ -183,7 +183,7 @@ let activeProject = 0
 
 // Auto trigger after Animation
 
-setTimeout(changePageDown, 100)
+setTimeout(changePageDown, 10500)
 
 // Project Loader
 
@@ -440,6 +440,7 @@ function pageMove(event) {
 }
 
 function changePageDown() {
+	removeActive()
 	if (index === 0) {
 		screens[index].classList.add('up')
 		bottomEl.classList.add('show')
