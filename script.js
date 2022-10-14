@@ -346,16 +346,16 @@ bottomBtn.addEventListener('click', () => {
 	index++
 })
 
-footer.addEventListener('click', () => {
-	bottomEl.classList.remove('hide')
-	footer.classList.add('hide')
+// footer.addEventListener('click', () => {
+// 	bottomEl.classList.remove('hide')
+// 	footer.classList.add('hide')
 
-	if (index === 4) {
-		screens[index - 1].classList.remove('halfup')
-	} else {
-		screens[index - 1].classList.remove('up')
-	}
-})
+// 	if (index === 4) {
+// 		screens[index - 1].classList.remove('halfup')
+// 	} else {
+// 		screens[index - 1].classList.remove('up')
+// 	}
+// })
 
 serviceTitles.forEach((title, idx) => {
 	title.addEventListener('mouseover', () => {
