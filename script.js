@@ -264,7 +264,6 @@ function resetProject() {
 	Array.from(projectItems).forEach((item) => {
 		item.innerHTML = ' '
 		item.classList.remove('active')
-		console.log(item)
 	})
 }
 
@@ -350,7 +349,6 @@ bottomBtn.addEventListener('click', () => {
 footer.addEventListener('click', () => {
 	bottomEl.classList.remove('hide')
 	footer.classList.add('hide')
-	console.log(index)
 
 	if (index === 4) {
 		screens[index - 1].classList.remove('halfup')
@@ -379,7 +377,6 @@ function removeActive() {
 	for (let i = 0; i < titleContainer.length; i++) {
 		titleContainer[i].classList.remove('active')
 		mobileLists[i].classList.add('hide')
-		console.log(titleContainer)
 	}
 }
 
