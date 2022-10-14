@@ -1092,6 +1092,7 @@ body {
 
 	.screen h1 {
 		font-size: 350px;
+		transform: translate(-50%, -55%);
 	}
 
 	.screen.up {
