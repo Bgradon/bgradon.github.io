@@ -406,6 +406,7 @@ body {
 	max-width: 1180px;
 	height: 60vh;
 	margin: 0;
+	margin-bottom: 5px;
 	padding: 0;
 	color: #fff;
 	background-color: #000;
@@ -1132,6 +1133,7 @@ body {
 
 	.projects {
 		width: 70%;
+		height: 90%;
 		justify-content: unset;
 	}
 
