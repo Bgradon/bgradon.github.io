@@ -335,7 +335,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 	padding: 0;
 	margin: 0;
 	overflow: scroll;
@@ -960,7 +960,7 @@ body {
 		height: 93%;
 	}
 
-	.projects li {
+	.projects-list div {
 		margin: 7px 0 7px 0;
 		height: 130px;
 	}
