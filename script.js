@@ -183,7 +183,7 @@ let activeProject = 0
 
 // Auto trigger after Animation
 
-setTimeout(changePageDown, 10500)
+setTimeout(changePageDown, 100)
 
 // Project Loader
 

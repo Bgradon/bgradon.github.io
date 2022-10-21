@@ -124,7 +124,7 @@ body {
 	width: 100%;
 	height: 100%;
 	padding: 0;
-	transition: margin 0.5s linear;
+	transition: margin 0.5s ease-in-out;
 }
 
 .screen.up {
@@ -152,6 +152,7 @@ body {
 
 .a-propos {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
@@ -162,6 +163,9 @@ body {
 .a-propos p {
 	font-family: 'qanelas-soft-ExtraBold';
 	font-size: 24px;
+	margin: 5px 0;
+	transform: translateY(0);
+	transition: transform 1s ease-in-out;
 }
 
 .bottom {
@@ -182,7 +186,7 @@ body {
 	top: 50%;
 	transform: translate(-50%, -50%);
 	font-family: 'qanelas-semibold';
-	font-size: 40px;
+	font-size: 36px;
 	cursor: pointer;
 }
 
@@ -261,6 +265,7 @@ body {
 	align-self: center;
 	cursor: pointer;
 	margin: 0;
+	transition: all 0.5s ease-in-out;
 }
 
 .mobile-list {
@@ -366,6 +371,7 @@ body {
 	font-family: 'qanelas-extrabold';
 	font-size: 45px;
 	align-self: center;
+	transition: all 0.5s ease-in-out;
 }
 
 .project-list a {
@@ -410,8 +416,7 @@ body {
 	padding: 0;
 	color: #fff;
 	background-color: #000;
-
-	transition: all 0.5s linear;
+	transition: all 0.8s ease-in-out;
 }
 
 .footer-container {
@@ -563,6 +568,35 @@ body {
 	padding: 0;
 	margin: 10px 0;
 	height: 13%;
+	transition: all 2s ease-in-out;
+}
+
+.menu-drawer.open .menu-container ul li {
+	animation: show 2s ease-out;
+}
+
+@keyframes show {
+	0% {
+		opacity: 0;
+		transform: translateY(40px);
+	}
+	30% {
+		opacity: 0;
+		transform: translateY(40px);
+	}
+
+	50% {
+		opacity: 0.8;
+		transform: translateY(40px);
+	}
+	70% {
+		opacity: 0.8;
+		transform: translateY(40px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 .menu-container small {
@@ -575,6 +609,7 @@ body {
 	font-family: 'qanelas-extrabold';
 	font-size: 70px;
 	align-self: center;
+	transition: all 0.5s ease-in-out;
 }
 
 .menu-container ul li a {
