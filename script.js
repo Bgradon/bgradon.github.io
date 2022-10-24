@@ -4,6 +4,7 @@ const screens = document.querySelectorAll('.screen')
 const bottomBtn = document.getElementById('bottom-btn')
 const bottomEl = document.getElementById('bottom')
 const headerEl = document.getElementById('header')
+const logo = document.getElementById('logo')
 const footer = document.getElementById('footer')
 const menuTitles = document.querySelectorAll('.menu-titles li h2')
 const serviceTitles = document.querySelectorAll('.title-container h2')
@@ -309,10 +310,12 @@ menuTitles.forEach((title, idx) => {
 
 			for (h = 0; h < idx; h++) {
 				screens[h].classList.add('up')
+				screens[h].classList.remove('active')
 			}
 		}
 		menuDrawer.classList.toggle('open')
 		menuBtn.classList.toggle('active')
+		screens[idx].classList.add('active')
 		index = idx
 		current = true
 	})
@@ -346,16 +349,15 @@ bottomBtn.addEventListener('click', () => {
 	index++
 })
 
-// footer.addEventListener('click', () => {
-// 	bottomEl.classList.remove('hide')
-// 	footer.classList.add('hide')
-
-// 	if (index === 4) {
-// 		screens[index - 1].classList.remove('halfup')
-// 	} else {
-// 		screens[index - 1].classList.remove('up')
-// 	}
-// })
+logo.addEventListener('click', () => {
+	bottomEl.classList.remove('show')
+	headerEl.classList.remove('show')
+	for (let i = 0; i < screens.length; i++) {
+		screens[i].classList.remove('up')
+		screens[i].classList.remove('active')
+	}
+	index = 0
+})
 
 serviceTitles.forEach((title, idx) => {
 	title.addEventListener('mouseover', () => {
@@ -426,7 +428,9 @@ function pageMove(event) {
 				index--
 			}
 		} else if (event.deltaY > 0) {
-			if (index >= screens.lenght - 1) {
+			if (index === 0) {
+				changePageDown()
+			} else if (index >= screens.lenght - 1) {
 				index = screens.length - 1
 			} else {
 				changePageDown()
@@ -438,16 +442,21 @@ function pageMove(event) {
 
 function changePageDown() {
 	removeActive()
+	console.log(index)
 	if (index === 0) {
 		screens[index].classList.add('up')
+		screens[index + 1].classList.add('active')
 		bottomEl.classList.add('show')
 		headerEl.classList.add('show')
 		index++
 	} else if (index < screens.length - 1) {
 		screens[index].classList.add('up')
+		screens[index].classList.remove('active')
+		screens[index + 1].classList.add('active')
 		bottomEl.classList.add('show')
 		headerEl.classList.add('show')
 	} else if (index === screens.length - 1) {
+		screens[index].classList.remove('active')
 		screens[index].classList.add('halfup')
 		for (i = 0; i <= screens.length - 2; i++) {
 			screens[i].classList.remove('up')
@@ -487,5 +496,5 @@ function setColor(element) {
 
 function removeColor(element) {
 	element.style.boxShadow = ''
-	element.previousElementSibling.style.color = '#000'
+	element.previousElementSibling.style.color = '#fff'
 }
