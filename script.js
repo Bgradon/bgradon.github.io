@@ -184,7 +184,7 @@ let activeProject = 0
 
 // Auto trigger after Animation
 
-setTimeout(changePageDown, 10500)
+setTimeout(changePageDown, 100)
 
 // Project Loader
 
@@ -496,5 +496,13 @@ function setColor(element) {
 
 function removeColor(element) {
 	element.style.boxShadow = ''
-	element.previousElementSibling.style.color = '#fff'
+
+	if (
+		element.parentNode.classList.contains('project-title') |
+		element.parentNode.classList.contains('service-title')
+	) {
+		element.previousElementSibling.style.color = '#000'
+	} else {
+		element.previousElementSibling.style.color = '#fff'
+	}
 }

@@ -131,6 +131,10 @@ body {
 	transition: margin 0.5s ease-in-out;
 }
 
+.screen.hide {
+	display: none;
+}
+
 .screen.up {
 	margin-top: -80vh;
 }
