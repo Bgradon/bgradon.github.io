@@ -184,7 +184,7 @@ let activeProject = 0
 
 // Auto trigger after Animation
 
-setTimeout(changePageDown, 100)
+setTimeout(changePageDown, 10500)
 
 // Project Loader
 
@@ -260,6 +260,8 @@ function ShowElements() {
 		}
 	})
 }
+
+//
 
 function resetProject() {
 	Array.from(projectItems).forEach((item) => {
@@ -448,6 +450,7 @@ function changePageDown() {
 		screens[index + 1].classList.add('active')
 		bottomEl.classList.add('show')
 		headerEl.classList.add('show')
+		footer.classList.add('hide')
 		index++
 	} else if (index < screens.length - 1) {
 		screens[index].classList.add('up')
@@ -455,6 +458,7 @@ function changePageDown() {
 		screens[index + 1].classList.add('active')
 		bottomEl.classList.add('show')
 		headerEl.classList.add('show')
+		footer.classList.add('hide')
 	} else if (index === screens.length - 1) {
 		screens[index].classList.remove('active')
 		screens[index].classList.add('halfup')
