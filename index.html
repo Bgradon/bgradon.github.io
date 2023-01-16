@@ -237,10 +237,21 @@
 
 					<div class="form-container">
 						<h1>contactez-nous</h1>
-						<div class="form">
+						<div
+							class="form"
+							id="contact-form"
+							method="POST"
+							actionn="send"
+							enctype="multipart/form-data"
+						>
 							<div class="side-form">
-								<input type="text" placeholder="Présente toi" />
-								<input type="text" placeholder="Email" />
+								<input
+									type="text"
+									name="name"
+									required
+									placeholder="Présente toi"
+								/>
+								<input type="text" name="email" required placeholder="Email" />
 								<button class="attachment-btn" id="attachment">
 									Pièces jointes
 								</button>
@@ -248,11 +259,19 @@
 							<div class="side-form">
 								<input
 									type="text"
+									name="project"
+									required
 									placeholder="Parle moi de ton projet"
-									data-end="*"
 								/>
-								<input type="text" placeholder="Téléphone" />
-								<button class="send-btn" id="send">Envoyer</button>
+								<input
+									type="text"
+									name="project"
+									required
+									placeholder="Téléphone"
+								/>
+								<button class="send-btn" id="send" type="submit" value="submit">
+									Envoyer
+								</button>
 							</div>
 						</div>
 					</div>
@@ -336,5 +355,6 @@
 			</div>
 		</div>
 		<script src="script.js"></script>
+		<script src="index.js"></script>
 	</body>
 </html>

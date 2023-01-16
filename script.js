@@ -261,7 +261,7 @@ function ShowElements() {
 	})
 }
 
-//
+// Reset project Function
 
 function resetProject() {
 	Array.from(projectItems).forEach((item) => {
